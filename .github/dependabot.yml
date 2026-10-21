@@ -27,3 +27,43 @@ updates:
     schedule:
       interval: daily
     rebase-strategy: disabled
+  - package-ecosystem: devcontainers
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      routine-updates:
+        patterns:
+        - '*'
+        update-types:
+        - minor
+        - patch
+  - package-ecosystem: docker
+    directory: /.oss-scanner
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      routine-updates:
+        patterns:
+        - '*'
+        update-types:
+        - minor
+        - patch
+  - package-ecosystem: helm
+    directories:
+    - /charts/kyverno
+    - /charts/kyverno-policies
+    - /charts/kyverno/charts/crds
+    - /charts/kyverno/charts/grafana
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      routine-updates:
+        patterns:
+        - '*'
+        update-types:
+        - minor
+        - patch
